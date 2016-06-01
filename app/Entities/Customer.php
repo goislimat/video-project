@@ -19,9 +19,4 @@ class Customer extends Model implements Transformable
         'document_number'
     ];
 
-    public function getDocumentTypeAttribute($type)
-    {
-        return Document::getDocument($type);
-    }
-
 }
