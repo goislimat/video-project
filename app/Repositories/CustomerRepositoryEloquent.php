@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use App\Http\Utils\Document;
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
 use App\Repositories\CustomerRepository;
@@ -33,4 +34,5 @@ class CustomerRepositoryEloquent extends BaseRepository implements CustomerRepos
     {
         $this->pushCriteria(app(RequestCriteria::class));
     }
+    
 }

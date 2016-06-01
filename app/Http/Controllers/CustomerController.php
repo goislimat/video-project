@@ -38,7 +38,7 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        //
+        return view('customers.create');
     }
 
     /**
@@ -49,7 +49,9 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $customer = $this->repository->create($request->all());
+
+        return redirect()->route('customers.show', [$customer->id]);
     }
 
     /**
@@ -60,7 +62,9 @@ class CustomerController extends Controller
      */
     public function show($id)
     {
-        //
+        $customer = $this->repository->find($id);
+        
+        return view('customers.show', compact('customer'));
     }
 
     /**
@@ -71,7 +75,9 @@ class CustomerController extends Controller
      */
     public function edit($id)
     {
-        //
+        $customer = $this->repository->find($id);
+        
+        return view('customers.edit', compact('customer'));
     }
 
     /**
@@ -83,7 +89,9 @@ class CustomerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->repository->update($request->all(), $id);
+
+        return redirect()->route('customers.show', [$id]);
     }
 
     /**
@@ -94,6 +102,8 @@ class CustomerController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $this->repository->delete($id);
+
+        return redirect()->route('customers.index');
     }
 }

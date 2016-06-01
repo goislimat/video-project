@@ -2,6 +2,7 @@
 
 namespace App\Entities;
 
+use App\Http\Utils\Document;
 use Illuminate\Database\Eloquent\Model;
 use Prettus\Repository\Contracts\Transformable;
 use Prettus\Repository\Traits\TransformableTrait;
@@ -17,5 +18,10 @@ class Customer extends Model implements Transformable
         'document_type',
         'document_number'
     ];
+
+    public function getDocumentTypeAttribute($type)
+    {
+        return Document::getDocument($type);
+    }
 
 }
