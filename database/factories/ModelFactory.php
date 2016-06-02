@@ -29,3 +29,15 @@ $factory->define(App\Entities\Customer::class, function (Faker\Generator $faker)
         'document_number' => $faker->ean8,
     ];
 });
+
+$factory->define(App\Entities\Driver::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->name,
+        'email' => $faker->safeEmail,
+        'phone' => $faker->phoneNumber,
+        'rg' => $faker->ean8,
+        'cpf' => $faker->ean8,
+        'salary' => $faker->numberBetween(100000, 300000),
+        'registration_date' => $faker->date()
+    ];
+});

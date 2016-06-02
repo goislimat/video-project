@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use App\Repositories\CustomerRepository;
 use App\Repositories\CustomerRepositoryEloquent;
+use App\Repositories\DriverRepository;
+use App\Repositories\DriverRepositoryEloquent;
 use Illuminate\Support\ServiceProvider;
 
 class AppRepositoryProvider extends ServiceProvider
@@ -28,6 +30,11 @@ class AppRepositoryProvider extends ServiceProvider
         $this->app->bind(
             CustomerRepository::class,
             CustomerRepositoryEloquent::class
+        );
+
+        $this->app->bind(
+            DriverRepository::class,
+            DriverRepositoryEloquent::class
         );
     }
 }

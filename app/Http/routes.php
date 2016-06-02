@@ -16,6 +16,7 @@ Route::get('/', function () {
 });
 
 Route::resource('customers', 'CustomerController');
+Route::resource('drivers', 'DriverController');
 
 Route::auth();
 
