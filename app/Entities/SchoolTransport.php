@@ -6,24 +6,23 @@ use Illuminate\Database\Eloquent\Model;
 use Prettus\Repository\Contracts\Transformable;
 use Prettus\Repository\Traits\TransformableTrait;
 
-class Driver extends Model implements Transformable
+class SchoolTransport extends Model implements Transformable
 {
     use TransformableTrait;
 
     protected $fillable = [
-		'name',
-		'rg',
-		'cpf',
-		'salary',
-		'email',
-		'phone',
-		'registration_date',
-		'leaving_date',
+		'job_id',
+		'school',
+		'started_at',
+		'class_start_at',
+		'class_finish_at',
+		'monthly_payment',
+		'leaved_at',
 	];
 	
-	public function jobs()
+	public function job()
 	{
-	    return $this->hasMany(Job::class);
+	    return $this->belongsTo(Job::class);
 	}
 
 }

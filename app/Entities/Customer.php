@@ -19,4 +19,9 @@ class Customer extends Model implements Transformable
         'document_number'
     ];
 
+    public function contracted_services()
+    {
+        return $this->hasMany(Job::class);
+    }
+
 }
